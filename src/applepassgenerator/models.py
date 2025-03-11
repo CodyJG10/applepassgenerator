@@ -50,12 +50,12 @@ class NumberStyle:
 
 
 class Field(object):
-    def __init__(self, key, value, label=""):
+    def __init__(self, key, value, label="", alignment=Alignment.CENTER):
         self.key = key  # Required. The key must be unique within the scope
         self.value = value  # Required. Value of the field. For example, 42
         self.label = label  # Optional. Label text for the field.
         self.changeMessage = ""  # Optional. Format string for the alert text that is displayed when the pass is updated
-        self.textAlignment = Alignment.LEFT
+        self.textAlignment = alignment
 
     def json_dict(self):
         return self.__dict__
@@ -171,20 +171,20 @@ class PassInformation(object):
         self.back_fields = []
         self.auxiliary_fields = []
 
-    def add_header_field(self, key, value, label):
-        self.header_fields.append(Field(key, value, label))
+    def add_header_field(self, key, value, label, alignment: Alignment = Alignment.LEFT):
+        self.header_fields.append(Field(key, value, label, alignment))
 
-    def add_primary_field(self, key, value, label):
-        self.primary_fields.append(Field(key, value, label))
+    def add_primary_field(self, key, value, label, alignment: Alignment = Alignment.LEFT):
+        self.primary_fields.append(Field(key, value, label, alignment))
 
-    def add_secondary_field(self, key, value, label):
-        self.secondary_fields.append(Field(key, value, label))
+    def add_secondary_field(self, key, value, label, alignment: Alignment = Alignment.LEFT):
+        self.secondary_fields.append(Field(key, value, label, alignment))
 
-    def add_back_field(self, key, value, label):
-        self.back_fields.append(Field(key, value, label))
+    def add_back_field(self, key, value, label, alignment: Alignment = Alignment.LEFT):
+        self.back_fields.append(Field(key, value, label, alignment))
 
-    def add_auxiliary_field(self, key, value, label):
-        self.auxiliary_fields.append(Field(key, value, label))
+    def add_auxiliary_field(self, key, value, label, alignment: Alignment = Alignment.LEFT):
+        self.auxiliary_fields.append(Field(key, value, label, alignment))
 
     def json_dict(self):
         d = {}
