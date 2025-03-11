@@ -64,8 +64,8 @@ from applepassgenerator import ApplePassGeneratorClient
 from applepassgenerator.models import EventTicket
 
 card_info = EventTicket()
-card_info.add_primary_field('name', 'Tony Stark', 'Name')
-card_info.add_secondary_field('loc', 'USA', 'Country')
+card_info.add_primary_field('name', 'Tony Stark', 'Name', Alignment.LEFT)
+card_info.add_secondary_field('loc', 'USA', 'Country', Alignment.CENTER)
 
 team_identifier = "1234ABCDEF"
 pass_type_identifier = "pass.com.project.example"
